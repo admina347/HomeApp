@@ -11,7 +11,8 @@ namespace HomeApp
         {
             InitializeComponent();
 
-            MainPage = new MergeGridPage(); //GridPage();  //AboutPage(); //ClimatePage();   //DevicesPage();   //LoginPage();  //LoadingPage(); //MainPage();
+            MainPage = new WebPage();   //ProfilePage();   //NewDevicePage(); //DeviceContolPage();  //DevicesPage(); //CsharpPaddingPage(); //PaddingPage();   //MergeGridPage(); 
+            //GridPage();  //AboutPage(); //ClimatePage();   //DevicesPage();   //LoginPage();  //LoadingPage(); //MainPage();
         }
 
         protected override void OnStart()

@@ -22,6 +22,9 @@ namespace HomeApp.Pages
         public LoginPage()
         {
             InitializeComponent();
+            // Изменяем внешний вид кнопки для Windows-версии
+            if (Device.RuntimePlatform == Device.UWP)
+                loginButton.CornerRadius = 0;
         }
 
         /// <summary>
@@ -41,6 +44,8 @@ namespace HomeApp.Pages
                 var infoMessage = (Label)stackLayout.Children.Last();
                 // Задаем текст элемента
                 infoMessage.Text = "Слишком много попыток! Попробуйте позже";
+                // задаем красный цвет сообщения
+                infoMessage.TextColor = Color.FromRgb(255, 0, 0);
 
             }
             else
