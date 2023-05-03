@@ -26,8 +26,8 @@ namespace HomeApp.Pages
             if (Device.RuntimePlatform == Device.UWP)
             {
                 placeHolder.PlaceholderColor = Color.SlateGray;
-                loginButton.TextColor = Color.AliceBlue;
-                loginButton.Margin = new Thickness(0, 5);
+                registerButton.TextColor = Color.AliceBlue;
+                registerButton.Margin = new Thickness(0, 5);
             }
         }
     }

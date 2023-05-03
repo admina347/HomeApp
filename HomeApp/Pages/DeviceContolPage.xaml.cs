@@ -33,8 +33,8 @@ namespace HomeApp.Pages
             var datePickerText = new Label { Text = "Дата запуска ", Margin = new Thickness(0, 20, 0, 0) };
 
             // Добавляем всё на страницу
-            stackLayout.Children.Add(new Label { Text = "Устройство" });
-            stackLayout.Children.Add(new Entry { BackgroundColor = Color.AliceBlue, Text = "Холодильник" });
+            //stackLayout.Children.Add(new Label { Text = "Устройство" });
+            //stackLayout.Children.Add(new Entry { BackgroundColor = Color.AliceBlue, Text = "Холодильник" });
             stackLayout.Children.Add(datePickerText);
             stackLayout.Children.Add(datePicker);
 
@@ -106,6 +106,17 @@ namespace HomeApp.Pages
             // stepper.ValueChanged += (sender, e) => TempChangedHandler(sender, e, stepperText);
             slider.ValueChanged += (sender, e) => TempChangedHandler(sender, e, sliderText);
 
+            // Кнопка сохранения
+            var saveButton = new Button
+            {
+                Text = "Сохранить",
+                BackgroundColor = Color.Silver,
+                Margin = new Thickness(0, 5, 0, 0)
+            };
+            saveButton.Clicked += SaveButtonClick;
+            stackLayout.Children.Add(saveButton);
+
+
         }
 
         public void DateSelectedHandler(object sender, DateChangedEventArgs e, Label datePickerText)
@@ -127,6 +138,16 @@ namespace HomeApp.Pages
         private void TempChangedHandler(object sender, ValueChangedEventArgs e, Label header)
         {
             header.Text = String.Format("Температура: {0:F1}°C", e.NewValue);
+        }
+
+
+        /// <summary>
+        /// Обработчик кнопки сохранения
+        /// </summary>
+        private void SaveButtonClick(object sender, EventArgs e)
+        {
+            // После сохранения параметров отключаем пользователю возможность редактирования
+            deviceEntry.IsEnabled = false;
         }
 
     }

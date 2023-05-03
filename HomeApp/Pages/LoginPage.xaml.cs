@@ -19,12 +19,27 @@ namespace HomeApp.Pages
         public static int loginCounter = 0;
         //string errorMessage;
 
+        // Создаем объект, возвращающий свойства устройства
+        IDeviceDetector detector = DependencyService.Get<IDeviceDetector>();
+
         public LoginPage()
         {
             InitializeComponent();
-            // Изменяем внешний вид кнопки для Windows-версии
-            if (Device.RuntimePlatform == Device.UWP)
+
+            // Изменяем внешний вид кнопки для Desktop-версии
+            if (Device.Idiom == TargetIdiom.Desktop)
                 loginButton.CornerRadius = 0;
+
+            //// Изменяем внешний вид кнопки для Windows-версии
+            //if (Device.RuntimePlatform == Device.UWP)
+            //    loginButton.CornerRadius = 0;
+
+            // Передаем информацию о платформе на экран
+            //runningDevice.Text = detector.GetDevice();
+
+            // Устанавливаем динамический ресурс с помощью специально метода
+            infoMessage.SetDynamicResource(Label.TextColorProperty, "errorColor");
+
         }
 
         /// <summary>
@@ -40,17 +55,17 @@ namespace HomeApp.Pages
             {
                 loginButton.IsEnabled = false;
 
-                // Получаем последний дочерний элемент, используя свойство Children, затем выполняем распаковку
-                var infoMessage = (Label)stackLayout.Children.Last();
-                // Задаем текст элемента
+                // Обновляем динамический ресурс по необходимости
+                Resources["errorColor"] = Color.FromHex("#e70d4f");
                 infoMessage.Text = "Слишком много попыток! Попробуйте позже";
-                // задаем красный цвет сообщения
-                infoMessage.TextColor = Color.FromRgb(255, 0, 0);
-
             }
             else
             {
-                loginButton.Text = $"Выполняется вход...   Попыток входа: {loginCounter}";
+                // Обновляем динамический ресурс по необходимости
+                Resources["errorColor"] = Color.FromHex("#ff8e00");
+
+                loginButton.Text = $"Выполняется вход...";
+                infoMessage.Text = $" Попыток входа: { loginCounter}";
             }
 
             loginCounter += 1;
