@@ -11,7 +11,8 @@ namespace HomeApp
         {
             InitializeComponent();
 
-            MainPage = new NewDevicePage(); // DeviceContolPage();   //WebPage();   //ProfilePage();   //NewDevicePage(); //DeviceContolPage();  //DevicesPage(); //CsharpPaddingPage(); //PaddingPage();   //MergeGridPage(); 
+            MainPage = new DeviceListPage();    //BindingModePage();  //NewDevicePage(); // DeviceContolPage();   //WebPage();   //ProfilePage();   
+                //NewDevicePage(); //DeviceContolPage();  //DevicesPage(); //CsharpPaddingPage(); //PaddingPage();   //MergeGridPage(); 
             //GridPage();  //AboutPage(); //ClimatePage();   //DevicesPage();   //LoginPage();  //LoadingPage(); //MainPage();
         }
 
