@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:HomeApp"
-             x:Class="HomeApp.Pages.LoginPage">
+             x:Class="HomeApp.Pages.LoginPage"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center"  HorizontalOptions="Center"  x:Name="stackLayout">
             <Label Text="HomeApp - Ваш умный дом" FontSize="Title" Padding="30,10,30,10" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
